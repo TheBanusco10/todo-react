@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { TodosContext } from "../../context/TodosContext";
-import TodoItem from "./TodoItem";
+import { TodosContext } from "@/context/TodosContext";
+import TodoItem from "@/components/Todos/TodoItem";
 
 const TodosList = () => {
   const { todos } = useContext(TodosContext);

@@ -1,7 +1,6 @@
-import { useContext, useState } from "react";
-import AddTodo from "./components/Todos/AddTodo";
-import TodosList from "./components/Todos/TodosList";
-import TodosContextProvider, { TodosContext } from "./context/TodosContext";
+import AddTodo from "@/components/Todos/AddTodo";
+import TodosList from "@/components/Todos/TodosList";
+import TodosContextProvider, { TodosContext } from "@/context/TodosContext";
 
 function App() {
   return (
