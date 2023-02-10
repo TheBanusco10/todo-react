@@ -1,22 +1,19 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
+import TodosReducer from "../reducers/TodosReducer";
 
 export const TodosContext = React.createContext({});
+export const TodosDispatchContext = React.createContext(null);
 
-const defaultTodos = [
-  {
-    id: Date.now(),
-    title: "First todo",
-    description: "Description",
-    isDone: false,
-    createdAt: new Date(),
-  },
-];
+const defaultTodos = JSON.parse(localStorage.getItem("todos")) || [];
 
 const TodosContextProvider = ({ children }) => {
-  const [todos, setTodos] = useState(defaultTodos);
+  const [todos, dispatch] = useReducer(TodosReducer, defaultTodos);
+
   return (
-    <TodosContext.Provider value={{ todos, setTodos }}>
-      {children}
+    <TodosContext.Provider value={todos}>
+      <TodosDispatchContext.Provider value={dispatch}>
+        {children}
+      </TodosDispatchContext.Provider>
     </TodosContext.Provider>
   );
 };

@@ -3,7 +3,7 @@ import { TodosContext } from "@/context/TodosContext";
 import TodoItem from "@/components/Todos/TodoItem";
 
 const TodosList = () => {
-  const { todos } = useContext(TodosContext);
+  const todos = useContext(TodosContext);
 
   return (
     <section>

@@ -12,15 +12,15 @@ const newTodoInitialState = {
 const AddTodo = () => {
   const [newTodo, setNewTodo] = useState(newTodoInitialState);
 
-  const { todos, setTodos } = useContext(TodosContext);
+  const dispatch = useContext(TodosDispatchContext);
 
   const handleAddTodo = (evt) => {
     evt.preventDefault();
 
-    newTodo.id = Date.now();
-    newTodo.createdAt = new Date();
-
-    setTodos([...todos, newTodo]);
+    dispatch({
+      type: "added",
+      newTodo,
+    });
 
     setNewTodo(newTodoInitialState);
   };
