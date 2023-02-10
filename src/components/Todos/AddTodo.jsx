@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { TodosContext } from "@/context/TodosContext";
+import { TodosDispatchContext } from "@/context/TodosContext";
 
 const newTodoInitialState = {
   id: "",

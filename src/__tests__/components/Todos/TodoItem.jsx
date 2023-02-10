@@ -19,7 +19,7 @@ describe("TodoItem tests", () => {
         <TodosList />
       </TodosContext.Provider>
     );
-    expect(getByText(/Test/i)).toBeInTheDocument();
-    expect(getByText(/Test description/i)).toBeInTheDocument();
+    expect(getByText('Test')).toBeInTheDocument();
+    expect(getByText("Test description")).toBeInTheDocument();
   });
 });

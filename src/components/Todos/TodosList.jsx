@@ -6,10 +6,14 @@ const TodosList = () => {
   const todos = useContext(TodosContext);
 
   return (
-    <section>
-      {todos.map((todo) => (
-        <TodoItem {...todo} key={todo.id} />
-      ))}
+    <section className="flex flex-wrap justify-center gap-4">
+      {todos.length > 0 ? (
+        todos.map((todo, index) => (
+          <TodoItem {...todo} index={index} key={todo.id} />
+        ))
+      ) : (
+        <p>There is no Todos</p>
+      )}
     </section>
   );
 };

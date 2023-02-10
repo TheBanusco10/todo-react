@@ -10,6 +10,14 @@ const TodosReducer = (todos, action) => {
       return [...todos, newTodo];
     }
 
+    case "removed": {
+      const { index } = action;
+      const newTodos = todos.slice();
+      newTodos.splice(index, 1);
+      localStorage.setItem("todos", JSON.stringify([...newTodos]));
+      return [...newTodos];
+    }
+
     default: {
       throw Error("Unknown action: " + action.type);
     }
