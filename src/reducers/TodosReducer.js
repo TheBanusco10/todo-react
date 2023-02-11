@@ -11,11 +11,17 @@ const TodosReducer = (todos, action) => {
     }
 
     case "removed": {
-      const { index } = action;
-      const newTodos = todos.slice();
-      newTodos.splice(index, 1);
+      const { id } = action;
+      const newTodos = todos.filter((todo) => todo.id !== id);
       localStorage.setItem("todos", JSON.stringify([...newTodos]));
       return [...newTodos];
+    }
+
+    case "done": {
+      const { index, done } = action;
+      todos[index].isDone = done;
+      localStorage.setItem("todos", JSON.stringify([...todos]));
+      return [...todos];
     }
 
     default: {
